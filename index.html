@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Nonebot群大佬们的日常">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Nonebot 梗 | Nonebot群大佬们的日常</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        @media screen and (max-width: 600px) {
+            #meme_img {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+            #meme_img {
+                width: 50%;
+            }
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.8em;
+        }
+
+        #main_content {
+            border-radius: 1rem;
+        }
+    </style>
+
+
+    <script>
+        function random(max) {
+            var r, v;
+            var arr = [];
+            return function create() {
+                if (arr.length === 0) {
+                    for (var i = 0; i < max; i++) {
+                        arr.push(i + 1)
+                    }
+                }
+                r = Math.ceil(Math.random() * (arr.length - 1));
+                v = arr[r];
+                if (arr.length === 1) {
+                    arr = []
+                } else {
+                    arr.splice(r, r);
+                }
+
+                return v;
+            }
+        };
+
+        var srand = random(27);
+        function changePic() {
+            const img = document.getElementById("meme_img")
+            const index = document.getElementById("index_show")
+            img.setAttribute("src", "");
+            index.setAttribute("aria-busy", "true");
+            const i = srand();
+            img.setAttribute("src", "meme/" + i + ".jpg");
+            index.innerText = "# " + i;
+        };
+    </script>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <hgroup>
+            <h1>Nonebot 梗</h1>
+            <h2>Nonebot群大佬们的日常</h2>
+        </hgroup>
+
+        <article id="main_content">
+
+            <h3 id="index_show">#</h3>
+
+            <center>
+                <img id="meme_img" src="" alt="这是图" onclick="changePic()">
+            </center>
+
+            <script>
+                changePic();
+                const img = document.getElementById("meme_img")
+                img.onload = function () {
+                    document.getElementById("index_show").setAttribute("aria-busy", "false");
+                }
+            </script>
+        </article>
+
+        <footer>
+            <p>
+                · Nonebot 闲聊群 · 堂堂连载 ·
+            </p>
+            <p>
+                <a href="https://github.com/NoneMeme/NoneMeme">Github投稿</a>
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
