@@ -10,31 +10,8 @@
     <link rel="shortcut icon" href="favicon.ico">
     <title>NoneBot 梗 | NoneBot 群大佬们的日常</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.0/css/pico.min.css">
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        @media screen and (max-width: 600px) {
-            #meme_img {
-                width: 100%;
-            }
-        }
-
-        @media screen and (min-width: 600px) {
-            #meme_img {
-                width: 50%;
-            }
-        }
-
-        footer {
-            text-align: center;
-            font-size: 0.8em;
-        }
-
-        #main_content {
-            border-radius: 1rem;
-        }
-    </style>
-
 
     <script>
         function random(max) {
@@ -58,7 +35,7 @@
             }
         };
 
-        var srand = random(125);
+        var srand = random(126);
         function changePic() {
             const img = document.getElementById("meme_img")
             const index = document.getElementById("index_show")
