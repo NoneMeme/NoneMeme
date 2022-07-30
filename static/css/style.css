@@ -1,4 +1,5 @@
 :root:not([data-theme=dark]), [data-theme=light] {
+    --spacing: 0.5rem;
     --primary: #415462;
     --primary-hover: rgb(232, 79, 81);
 }
