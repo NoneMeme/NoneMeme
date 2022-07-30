@@ -1,8 +1,28 @@
-.gallery {
-}
 .gallery__container {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    flex-shrink: 0;
+    column-gap: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.gallery__container::-webkit-scrollbar {
+    z-index: 11;
+    width: 6px;
+}
+.gallery__container::-webkit-scrollbar:horizontal {
+    height: 6px;
+}
+.gallery__container::-webkit-scrollbar-thumb {
+    width: 6px;
+    background: #ccc;
+    border-radius: 5px;
+}
+.gallery__container > div.gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+}
+.gallery__container > div.gallery-item > img {
+    user-select: none;
 }
