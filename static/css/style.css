@@ -9,12 +9,12 @@ article > div.header {
     align-items: center;
     padding-bottom: 20px;
 }
-article > div.header > div.title {
+article > div.header > .title {
     font-size: 36px;
     font-weight: bold;
     transition: .3s;
 }
-article > div.header > div.title:hover {
+article > div.header > .title:hover {
     cursor: pointer;
     color: rgba(232, 79, 81);
 }
