@@ -12,40 +12,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.0/css/pico.min.css">
     <link rel="stylesheet" href="style.css">
-
-    <script>
-        function random(max) {
-            var r, v;
-            var arr = [];
-            return function create() {
-                if (arr.length === 0) {
-                    for (var i = 0; i < max; i++) {
-                        arr.push(i + 1)
-                    }
-                }
-                r = Math.ceil(Math.random() * (arr.length - 1));
-                v = arr[r];
-                if (arr.length === 1) {
-                    arr = []
-                } else {
-                    arr.splice(r, r);
-                }
-
-                return v;
-            }
-        };
-
-        var srand = random(138);
-        function changePic() {
-            const img = document.getElementById("meme_img")
-            const index = document.getElementById("index_show")
-            img.setAttribute("src", "");
-            index.setAttribute("aria-busy", "true");
-            const i = srand();
-            img.setAttribute("src", "meme/" + i + ".jpg");
-            index.innerText = "# " + i;
-        };
-    </script>
 </head>
 
 <body>
@@ -62,16 +28,10 @@
             <h3 id="index_show">#</h3>
 
             <center>
-                <img id="meme_img" src="" alt="这是图" onclick="changePic()">
+                <img id="meme_img" alt="这是图">
             </center>
 
-            <script>
-                changePic();
-                const img = document.getElementById("meme_img")
-                img.onload = function () {
-                    document.getElementById("index_show").setAttribute("aria-busy", "false");
-                }
-            </script>
+            <script src="./scripts/index.js" type="module"></script>
         </article>
 
         <footer>
