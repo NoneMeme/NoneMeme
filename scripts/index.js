@@ -50,10 +50,14 @@ function _img(src) {
 
 function renderGrid(grid, count) {
     let images = []
+    
     for(let i = 0; i < count; i++) {
         images.push(i)
     }
-    images = images.sort(() => (Math.random() - 0.5))
+
+    images = images
+        .sort(() => (Math.random() - 0.5))
+        .slice(0, conf.maxGridImagesDisplay + 1)
 
     const frag = document.createDocumentFragment()
 
