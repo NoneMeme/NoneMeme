@@ -27,7 +27,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v2.3.0
         with:
           commit_message: 'chore: update config file'
-          branch: ${{ github.head_ref }}
+          branch: ${{ github.ref_name }}
           file_pattern: meme
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
