@@ -23,6 +23,7 @@ jobs:
           chmod +x ./shell/computed.sh
           ./shell/computed.sh
           cat static/scripts/config.js
+          git add static/scripts/config.js
       - uses: stefanzweifel/git-auto-commit-action@v2.3.0
         with:
           commit_message: 'chore: update config file'
