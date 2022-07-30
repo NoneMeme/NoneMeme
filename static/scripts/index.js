@@ -9,11 +9,12 @@ function random(max) {
     return ~~(Math.random() * max) + 1
 }
 
-(() => {
-    document.querySelector('#desc').innerHTML = `NoneBot 群大佬们的日常，目前已有 ${ config.count } 张。`
+function initMainContent() {
+    document.querySelector('#desc').innerHTML = `NoneBot 群大佬们的日常，目前已有 ${config.count} 张。`
     const hashVal = location.hash.replace(/^#(.*)/, '$1')
     switch (hashVal) {
-        case '': break
+        case '':
+            break
         case 'gallery':
             break
         default:
@@ -23,7 +24,6 @@ function random(max) {
     if (isNaN(cur)) {
         cur = random(config.count)
     }
-
     const title = document.querySelector('#mainContent > div.header > a.title')
     const downloadMemeImg = document.querySelector('#mainContent > div.header > div.opts > a.material-icons.download')
     const memeImg = document.getElementById('memeImg')
@@ -43,5 +43,10 @@ function random(max) {
         img.src = sortedItems[cur]
         downloadMemeImg.href = img.src
     }
+
     setupMemeImg(memeImg)
+}
+
+(() => {
+    initMainContent()
 })()
