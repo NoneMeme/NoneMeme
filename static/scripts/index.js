@@ -39,14 +39,16 @@ function initMainContent() {
     }
     const title = document.querySelector('#mainContent > div.header > a.title')
     const downloadMemeImg = document.querySelector('#mainContent > div.header > div.opts > a.material-icons.download')
+    const refreshMemeImg = document.querySelector('#mainContent > div.header > div.opts > span.material-icons.refresh')
     const memeImg = document.getElementById('memeImg')
-    memeImg.onload = () => {
-        title.ariaBusy = 'false'
-    }
-    memeImg.onclick = () => {
+    refreshMemeImg.onclick = () => {
         cur = random(1, config.count)
         setupMemeImg(memeImg)
     }
+    memeImg.onload = () => {
+        title.ariaBusy = 'false'
+    }
+    memeImg.onclick = refreshMemeImg.onclick
 
     function setupMemeImg(img) {
         title.ariaBusy = 'true'
