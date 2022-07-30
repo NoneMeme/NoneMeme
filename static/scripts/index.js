@@ -1,7 +1,5 @@
 import config from './config.js'
 
-let cur = NaN
-
 const pathRe = /^meme\/(\d+)\..*/
 const sortedItems = config.items.sort((a, b) => Number(a.replace(pathRe, '$1')) > Number(b.replace(pathRe, '$1')) ? 1 : -1)
 
@@ -10,6 +8,8 @@ function random(max) {
 }
 
 function initMainContent() {
+    let cur = NaN
+
     document.querySelector('#desc').innerHTML = `NoneBot 群大佬们的日常，目前已有 ${config.count} 张。`
     const hashVal = location.hash.replace(/^#(.*)/, '$1')
     switch (hashVal) {
