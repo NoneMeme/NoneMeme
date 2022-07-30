@@ -1,10 +1,11 @@
 import config from './config.js'
 
 const pathRe = /^meme\/(\d+)\..*/
+/** @type {string[]} */
 const sortedItems = config.items.sort((a, b) => Number(a.replace(pathRe, '$1')) > Number(b.replace(pathRe, '$1')) ? 1 : -1)
 
-function random(max) {
-    return ~~(Math.random() * max) + 1
+function random(min, max) {
+    return Math.round(Math.random() * (max - min)) + min;
 }
 
 function initMainContent() {
@@ -22,7 +23,7 @@ function initMainContent() {
             break
     }
     if (isNaN(cur)) {
-        cur = random(config.count)
+        cur = random(1, config.count)
     }
     const title = document.querySelector('#mainContent > div.header > a.title')
     const downloadMemeImg = document.querySelector('#mainContent > div.header > div.opts > a.material-icons.download')
@@ -31,7 +32,7 @@ function initMainContent() {
         title.ariaBusy = 'false'
     }
     memeImg.onclick = () => {
-        cur = random(config.count)
+        cur = random(1, config.count)
         setupMemeImg(memeImg)
     }
 
