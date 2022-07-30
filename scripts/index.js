@@ -67,7 +67,13 @@ function renderGrid(grid, count) {
 async function doInit() {
     const indexIndicator = document.getElementById('index_show'),
         memeImg = document.getElementById('meme_img'),
-        imgGrid = document.getElementById('grid')
+        imgGrid = document.getElementById('grid'),
+        fresh = document.getElementById('fresh')
+
+    fresh.onclick = () => {
+        imgGrid.innerHTML = ''
+        renderGrid(imgGrid, conf.count)
+    }
     
     changePic(memeImg, indexIndicator, conf.count)
     renderGrid(imgGrid, conf.count)
