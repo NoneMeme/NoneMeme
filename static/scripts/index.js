@@ -51,9 +51,10 @@ function initMainContent() {
     function setupMemeImg(img) {
         title.ariaBusy = 'true'
         title.innerText = `# ${cur}`
+        title.id = `${cur}`
         title.href = `#${cur}`
         location.hash = `#${cur}`
-        img.src = sortedItems[cur]
+        img.src = sortedItems[cur - 1]
         downloadMemeImg.href = img.src
     }
 
@@ -81,7 +82,7 @@ function initGallary() {
             ...sortedItems
                 .slice(start, end)
                 .map(item => {
-                    const num = Number(item.replace(pathRe, '$1')) - 1
+                    const num = Number(item.replace(pathRe, '$1'))
                     return createEleByTemp('galleryItem', {
                         id: `#${num}`,
                         src: item,
