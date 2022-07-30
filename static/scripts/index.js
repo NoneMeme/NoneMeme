@@ -58,6 +58,10 @@ function initMainContent() {
     }
 
     setupMemeImg(memeImg)
+
+    window.onhashchange = () => {
+        initMainContent()
+    }
 }
 
 function initGallary() {
@@ -76,12 +80,15 @@ function initGallary() {
         gallaryContainer.append(
             ...sortedItems
                 .slice(start, end)
-                .map(item => createEleByTemp('galleryItem', {
-                    id: item.replace(pathRe, '#$1'),
-                    src: item,
-                    alt: item.replace(/^meme\/(.*)/, '$1'),
-                    title: item.replace(pathRe, '# $1'),
-                }))
+                .map(item => {
+                    const num = Number(item.replace(pathRe, '$1')) - 1
+                    return createEleByTemp('galleryItem', {
+                        id: `#${num}`,
+                        src: item,
+                        alt: item.replace(/^meme\/(.*)/, '$1'),
+                        title: `# ${num}`,
+                    })
+                })
         )
     }
 }
