@@ -61,22 +61,29 @@ function initMainContent() {
 }
 
 function initGallary() {
-    let start = random(1, config.count)
-    let end = random(start, config.count)
-
     const gallary = document.querySelector('#gallery')
     const gallaryContainer = gallary.querySelector('div.gallery__container')
+    const refreshGallary = gallary.querySelector('div.header > div.opts > span.material-icons.refresh')
 
-    gallaryContainer.append(
-        ...sortedItems
-            .slice(start, end)
-            .map(item => createEleByTemp('galleryItem', {
-                id: item.replace(pathRe, '#$1'),
-                src: item,
-                alt: item.replace(/^meme\/(.*)/, '$1'),
-                title: item.replace(pathRe, '# $1'),
-            }))
-    )
+    refreshGallary.onclick = updateGallary
+
+    updateGallary()
+
+    function updateGallary() {
+        const start = random(1, config.count)
+        const end = random(start, config.count)
+        gallaryContainer.innerHTML = ''
+        gallaryContainer.append(
+            ...sortedItems
+                .slice(start, end)
+                .map(item => createEleByTemp('galleryItem', {
+                    id: item.replace(pathRe, '#$1'),
+                    src: item,
+                    alt: item.replace(/^meme\/(.*)/, '$1'),
+                    title: item.replace(pathRe, '# $1'),
+                }))
+        )
+    }
 }
 
 (() => {
