@@ -72,7 +72,9 @@ async function doInit() {
     const title = document.querySelector('#mainContent > div.header > div.title');
     const memeImg = document.getElementById('memeImg');
     const imgGrid = document.getElementById('grid');
-    const fresh = document.getElementById('fresh');
+    const fresh = document.querySelector('#gallery > div.header > div.opts > span.material-icons.refresh');
+
+    console.log(fresh)
 
     fresh.onclick = () => {
         imgGrid.innerHTML = ''

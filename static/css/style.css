@@ -3,6 +3,38 @@
     --primary-hover: rgb(232, 79, 81);
 }
 
+article > div.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+article > div.header > div.title {
+    font-size: 36px;
+    font-weight: bold;
+    transition: .3s;
+}
+article > div.header > div.title:hover {
+    cursor: pointer;
+    color: rgba(232, 79, 81);
+}
+article > div.header > div.opts {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+article > div.header > div.opts > span.material-icons {
+    padding: 4px;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: .3s;
+}
+article > div.header > div.opts > span.material-icons:hover {
+    color: #000;
+    background-color: #ddd5;
+}
+
 main.container {
     position: relative;
 }
@@ -22,40 +54,6 @@ main.container > div.icons > a > * {
     transition: .3s;
 }
 main.container > div.icons > a > *:hover {
-    background-color: #ddd5;
-}
-
-#mainContent {
-    border-radius: 1rem;
-}
-#mainContent > div.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#mainContent > div.header > div.title {
-    font-size: 36px;
-    font-weight: bold;
-    transition: .3s;
-}
-#mainContent > div.header > div.title:hover {
-    cursor: pointer;
-    color: rgba(232, 79, 81);
-}
-#mainContent > div.header > div.opts {
-    display: flex;
-    align-items: center;
-    column-gap: 5px;
-}
-#mainContent > div.header > div.opts > span.material-icons {
-    padding: 4px;
-    user-select: none;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: .3s;
-}
-#mainContent > div.header > div.opts > span.material-icons:hover {
-    color: #000;
     background-color: #ddd5;
 }
 
