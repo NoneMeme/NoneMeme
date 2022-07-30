@@ -1,8 +1,8 @@
 import config from './config.js'
 
-const pathRe = /^meme\/(\d+)\..*/
+const pathRe = /^meme\/(.+)\..*/
 /** @type {string[]} */
-const sortedItems = config.items.sort((a, b) => Number(a.replace(pathRe, '$1')) > Number(b.replace(pathRe, '$1')) ? 1 : -1)
+const sortedItems = config.items.sort((a, b) => a.replace(pathRe, '$1') > b.replace(pathRe, '$1') ? 1 : -1)
 
 function random(min, max) {
     return Math.round(Math.random() * (max - min)) + min;
@@ -24,14 +24,15 @@ function initMainContent() {
     let cur = NaN
 
     document.querySelector('#desc').innerHTML = `NoneBot 群大佬们的日常，目前已有 ${config.count} 张。`
-    const hashVal = location.hash.replace(/^#(.*)/, '$1')
+    const hashVal = decodeURIComponent(location.hash.replace(/^#(.*)/, '$1'))
     switch (hashVal) {
         case '':
             break
         case 'gallery':
             break
         default:
-            cur = Number(hashVal)
+            const i = sortedItems.findIndex(i => i.startsWith(`meme/${hashVal}`))
+            cur = i === -1 ? NaN : (i + 1)
             break
     }
     if (isNaN(cur)) {
@@ -51,12 +52,13 @@ function initMainContent() {
     memeImg.onclick = refreshMemeImg.onclick
 
     function setupMemeImg(img) {
+        const item = sortedItems[cur - 1]
+        const name = item.replace(pathRe, '$1')
         title.ariaBusy = 'true'
-        title.innerText = `# ${cur}`
-        title.id = `${cur}`
-        title.href = `#${cur}`
-        location.hash = `#${cur}`
-        img.src = sortedItems[cur - 1]
+        title.innerText = `# ${name}`
+        title.id = name
+        location.hash = title.href = `#${name}`
+        img.src = item
         downloadMemeImg.href = img.src
     }
 
@@ -84,12 +86,12 @@ function initGallary() {
             ...sortedItems
                 .slice(start, end)
                 .map(item => {
-                    const num = Number(item.replace(pathRe, '$1'))
+                    const name = item.replace(pathRe, '$1')
                     return createEleByTemp('galleryItem', {
-                        id: `#${num}`,
+                        id: `#${name}`,
                         src: item,
                         alt: item.replace(/^meme\/(.*)/, '$1'),
-                        title: `# ${num}`,
+                        title: `# ${name}`,
                     })
                 })
         )
