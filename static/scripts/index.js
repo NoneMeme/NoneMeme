@@ -31,6 +31,7 @@ function random(max) {
         title.ariaBusy = 'true'
         title.innerText = `# ${cur}`
         title.href = `#${cur}`
+        location.hash = `#${cur}`
         img.src = sortedItems[cur]
         img.onload = () => {
             title.ariaBusy = 'false'
