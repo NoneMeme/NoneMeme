@@ -8,6 +8,18 @@ function random(min, max) {
     return Math.round(Math.random() * (max - min)) + min;
 }
 
+/**
+ * @param id  {string}
+ * @param obj {Record<string, any>}
+ * @returns {Element}
+ */
+function createEleByTemp(id, obj) {
+    const temp = document.createElement('div')
+    temp.innerHTML = Object.entries(obj)
+        .reduce((old, [key, val]) => old.replaceAll(`\${${key}}`, val), document.getElementById(id).innerHTML)
+    return temp.children[0]
+}
+
 function initMainContent() {
     let cur = NaN
 
@@ -48,6 +60,25 @@ function initMainContent() {
     setupMemeImg(memeImg)
 }
 
+function initGallary() {
+    let start = random(1, config.count)
+    let end = random(start, config.count)
+
+    const gallary = document.querySelector('#gallery')
+    const gallaryContainer = gallary.querySelector('div.gallery__container')
+
+    gallaryContainer.append(
+        ...sortedItems
+            .slice(start, end)
+            .map(item => createEleByTemp('galleryItem', {
+                src: item,
+                alt: item.replace(/^meme\/(.*)/, '$1'),
+                title: item.replace(pathRe, '# $1'),
+            }))
+    )
+}
+
 (() => {
     initMainContent()
+    initGallary()
 })()

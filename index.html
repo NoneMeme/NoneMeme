@@ -55,7 +55,8 @@
                     <span class="material-icons refresh">refresh</span>
                 </div>
             </div>
-            <div id="grid" class="gallery__container"></div>
+            <div class="gallery__container">
+            </div>
         </article>
         <footer>
             <p>
@@ -66,6 +67,12 @@
             </p>
         </footer>
     </main>
+    <template id="galleryItem">
+        <div class="gallery-item">
+            <img src="${src}" alt="${alt}">
+            <span class="title">${title}</span>
+        </div>
+    </template>
 </body>
 <script src="static/scripts/index.js" type="module"></script>
 </html>
