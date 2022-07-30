@@ -1,6 +1,10 @@
 :root:not([data-theme=dark]), [data-theme=light] {
-    --primary: #788690;
+    --primary: #415462;
     --primary-hover: rgb(232, 79, 81);
+}
+
+a:hover, a:active, a:focus {
+    text-decoration: none;
 }
 
 article > div.header {
@@ -23,14 +27,14 @@ article > div.header > div.opts {
     align-items: center;
     column-gap: 5px;
 }
-article > div.header > div.opts > span.material-icons {
+article > div.header > div.opts > .material-icons {
     padding: 4px;
     user-select: none;
     cursor: pointer;
     border-radius: 4px;
     transition: .3s;
 }
-article > div.header > div.opts > span.material-icons:hover {
+article > div.header > div.opts > .material-icons:hover {
     color: #000;
     background-color: #ddd5;
 }
