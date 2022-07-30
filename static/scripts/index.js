@@ -1,4 +1,4 @@
-import conf from '../config.js'
+import conf from './config.js'
 
 function random(max) {
     return ~~(Math.random() * max) + 1
@@ -69,17 +69,17 @@ function renderGrid(grid, count) {
 }
 
 async function doInit() {
-    const indexIndicator = document.getElementById('index_show'),
-        memeImg = document.getElementById('meme_img'),
-        imgGrid = document.getElementById('grid'),
-        fresh = document.getElementById('fresh')
+    const title = document.querySelector('#mainContent > div.header > div.title');
+    const memeImg = document.getElementById('memeImg');
+    const imgGrid = document.getElementById('grid');
+    const fresh = document.getElementById('fresh');
 
     fresh.onclick = () => {
         imgGrid.innerHTML = ''
         renderGrid(imgGrid, conf.count)
     }
 
-    changePic(memeImg, indexIndicator, conf.count)
+    changePic(memeImg, title, conf.count)
     renderGrid(imgGrid, conf.count)
 }
 
