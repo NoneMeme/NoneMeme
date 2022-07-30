@@ -46,6 +46,9 @@ main.container > div.icons {
     align-items: center;
     column-gap: 5px;
 }
+main.container > div.icons > a {
+    height: 32px;
+}
 main.container > div.icons > a > * {
     padding: 4px;
     user-select: none;
