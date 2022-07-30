@@ -71,6 +71,7 @@ function initGallary() {
         ...sortedItems
             .slice(start, end)
             .map(item => createEleByTemp('galleryItem', {
+                id: item.replace(pathRe, '#$1'),
                 src: item,
                 alt: item.replace(/^meme\/(.*)/, '$1'),
                 title: item.replace(pathRe, '# $1'),
