@@ -24,8 +24,16 @@ function random(max) {
         cur = random(config.count)
     }
 
-    const memeImg = document.getElementById('memeImg')
     const title = document.querySelector('#mainContent > div.header > a.title')
+    const downloadMemeImg = document.querySelector('#mainContent > div.header > div.opts > a.material-icons.download')
+    const memeImg = document.getElementById('memeImg')
+    memeImg.onload = () => {
+        title.ariaBusy = 'false'
+    }
+    memeImg.onclick = () => {
+        cur = random(config.count)
+        setupMemeImg(memeImg)
+    }
 
     function setupMemeImg(img) {
         title.ariaBusy = 'true'
@@ -33,13 +41,7 @@ function random(max) {
         title.href = `#${cur}`
         location.hash = `#${cur}`
         img.src = sortedItems[cur]
-        img.onload = () => {
-            title.ariaBusy = 'false'
-        }
-        img.onclick = () => {
-            cur = random(config.count)
-            setupMemeImg(img)
-        }
+        downloadMemeImg.href = img.src
     }
     setupMemeImg(memeImg)
 })()
