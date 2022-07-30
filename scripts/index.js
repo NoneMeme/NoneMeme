@@ -1,7 +1,7 @@
 import conf from '../config.js'
 
 function random(max) {
-    return ~~(Math.random() * max)
+    return ~~(Math.random() * max) + 1
 }
 
 function changePic(img, index, count) {
@@ -26,10 +26,10 @@ function _img(src) {
     container.style.height = `${conf.gridImageHeight}px`
 
     const loadingAnim = container.animate([
-        {backgroundColor: 'transparent'},
-        {backgroundColor: '#555'},
-        {backgroundColor: 'transparent'},
-    ], {duration: 1000, iterations: Infinity})
+        { backgroundColor: 'transparent' },
+        { backgroundColor: '#555' },
+        { backgroundColor: 'transparent' },
+    ], { duration: 1000, iterations: Infinity })
 
     img.src = src
     img.style.height = conf.gridImageHeight + 'px'
@@ -50,8 +50,8 @@ function _img(src) {
 
 function renderGrid(grid, count) {
     let images = []
-    
-    for(let i = 0; i < count; i++) {
+
+    for (let i = 0; i < count; i++) {
         images.push(i)
     }
 
@@ -78,7 +78,7 @@ async function doInit() {
         imgGrid.innerHTML = ''
         renderGrid(imgGrid, conf.count)
     }
-    
+
     changePic(memeImg, indexIndicator, conf.count)
     renderGrid(imgGrid, conf.count)
 }
