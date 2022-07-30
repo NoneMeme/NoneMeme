@@ -5,25 +5,8 @@ let cur = NaN
 const pathRe = /^meme\/(\d+)\..*/
 const sortedItems = config.items.sort((a, b) => Number(a.replace(pathRe, '$1')) > Number(b.replace(pathRe, '$1')) ? 1 : -1)
 
-const title = document.querySelector('#mainContent > div.header > a.title')
-const memeImg = document.getElementById('memeImg')
-
 function random(max) {
     return ~~(Math.random() * max) + 1
-}
-
-function setupImg(img) {
-    title.ariaBusy = 'true'
-    title.innerText = `# ${cur}`
-    title.href = `#${cur}`
-    img.src = sortedItems[cur]
-    img.onload = () => {
-        title.ariaBusy = 'false'
-    }
-    img.onclick = () => {
-        cur = random(config.count)
-        setupImg(img)
-    }
 }
 
 (() => {
@@ -40,5 +23,22 @@ function setupImg(img) {
     if (isNaN(cur)) {
         cur = random(config.count)
     }
-    setupImg(memeImg)
+
+    const memeImg = document.getElementById('memeImg')
+    const title = document.querySelector('#mainContent > div.header > a.title')
+
+    function setupMemeImg(img) {
+        title.ariaBusy = 'true'
+        title.innerText = `# ${cur}`
+        title.href = `#${cur}`
+        img.src = sortedItems[cur]
+        img.onload = () => {
+            title.ariaBusy = 'false'
+        }
+        img.onclick = () => {
+            cur = random(config.count)
+            setupMemeImg(img)
+        }
+    }
+    setupMemeImg(memeImg)
 })()
