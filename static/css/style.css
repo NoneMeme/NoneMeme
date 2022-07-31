@@ -67,7 +67,7 @@ main.container > div.icons > a > *:hover {
 
 #memeImg {
     cursor: pointer;
-    height: 480px;
+    max-height: 480px;
 }
 
 footer {
