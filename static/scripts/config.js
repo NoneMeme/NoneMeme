@@ -1,5 +1,5 @@
 export default {
-  count: 156,
+  count: 160,
   items: [
     "meme/1.jpg",
     "meme/10.jpg",
@@ -53,7 +53,9 @@ export default {
     "meme/142.png",
     "meme/143.png",
     "meme/144.png",
+    "meme/145.jpg",
     "meme/145.png",
+    "meme/146.jpg",
     "meme/15.jpg",
     "meme/16.jpg",
     "meme/17.jpg",
@@ -150,11 +152,13 @@ export default {
     "meme/严  丝  合  缝.png",
     "meme/介介指定.png",
     "meme/我  太  菜  了.png",
+    "meme/清洁屏幕の最新方式.png",
     "meme/湿口for认.png",
     "meme/群友发电日记0x00.png",
     "meme/群友发电日记0x01.png",
     "meme/群友发电日记0x02.png",
     "meme/群友发电日记0x03.png",
+    "meme/群友发电日记0x04.png",
     "meme/跟我涩.png",
     "meme/？.png"
   ]
