@@ -1,5 +1,5 @@
 export default {
-  count: 178,
+  count: 180,
   items: [
     "meme/1.jpg",
     "meme/10.jpg",
@@ -61,6 +61,8 @@ export default {
     "meme/15.jpg",
     "meme/150.png",
     "meme/151.png",
+    "meme/152.png",
+    "meme/153.png",
     "meme/16.jpg",
     "meme/17.jpg",
     "meme/18.jpg",
