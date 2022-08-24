@@ -1,5 +1,5 @@
 export default {
-  count: 180,
+  count: 184,
   items: [
     "meme/010代理.jpg",
     "meme/404教程.jpg",
@@ -110,6 +110,7 @@ export default {
     "meme/小广告.jpg",
     "meme/幻雪好涩.jpg",
     "meme/应和.png",
+    "meme/弱智吧.jpg",
     "meme/很多指令不生效，而且它还骂我.jpg",
     "meme/怎么搞.jpg",
     "meme/想看美男.jpg",
@@ -137,6 +138,7 @@ export default {
     "meme/混淆透阿咪.jpg",
     "meme/清洁屏幕の最新方式.png",
     "meme/湿口for认.png",
+    "meme/灰太狼自画像.jpg",
     "meme/瓜瓜主人.jpg",
     "meme/男同好爽.jpg",
     "meme/病 娇.jpg",
@@ -152,6 +154,7 @@ export default {
     "meme/社我里面.jpg",
     "meme/科宝涩图.jpg",
     "meme/笨蛋~.jpg",
+    "meme/粉笔.jpg",
     "meme/给我康康.jpg",
     "meme/给我草.jpg",
     "meme/群友发电日记0x00.png",
@@ -165,6 +168,7 @@ export default {
     "meme/谁有时间读你们这破文档（原版）.jpg",
     "meme/资の秃.png",
     "meme/超到504.jpg",
+    "meme/超市自己.jpg",
     "meme/超我rc.jpg",
     "meme/跟我涩.png",
     "meme/还好没有我.jpg",
