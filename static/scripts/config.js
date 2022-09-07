@@ -1,10 +1,11 @@
 export default {
-  count: 191,
+  count: 194,
   items: [
     "meme/010代理.jpg",
     "meme/1的易失性.png",
     "meme/404教程.jpg",
     "meme/60の傲娇.png",
+    "meme/60可啪.png",
     "meme/60咬合.png",
     "meme/60是0.jpg",
     "meme/60疑惑.jpg",
@@ -43,6 +44,7 @@ export default {
     "meme/jinser喵~.png",
     "meme/mingxuan宣言.jpg",
     "meme/mix喂饭器.png",
+    "meme/mix好猛.png",
     "meme/mq雌小鬼.jpg",
     "meme/nonebOT.jpg",
     "meme/nonebot居住证.jpg",
@@ -162,6 +164,7 @@ export default {
     "meme/科宝涩图.jpg",
     "meme/笨蛋~.jpg",
     "meme/粉笔.jpg",
+    "meme/经典复刻.jpg",
     "meme/给我康康.jpg",
     "meme/给我草.jpg",
     "meme/群友发电日记0x00.png",
