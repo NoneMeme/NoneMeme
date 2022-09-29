@@ -1,8 +1,10 @@
 /** @type {string[]} */
 const sortedItems = []
 const development = location.host.search('127.0.0.1') != -1 || location.host.search('localhost') != -1
+
 const domParser = new DOMParser()
 const pathRe = /^meme\/(.+)\..*/
+const api = 'https://api.github.com/repos/NoneMeme/NoneMeme/contents/meme'
 
 function random(min, max) {
     return Math.round(Math.random() * (max - min)) + min;
