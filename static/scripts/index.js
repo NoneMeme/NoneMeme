@@ -1,8 +1,8 @@
-import config from './config.js'
-
-const pathRe = /^meme\/(.+)\..*/
 /** @type {string[]} */
-const sortedItems = config.items.sort((a, b) => a.replace(pathRe, '$1') > b.replace(pathRe, '$1') ? 1 : -1)
+const sortedItems = []
+const development = location.host.search('127.0.0.1') != -1 || location.host.search('localhost') != -1
+const domParser = new DOMParser()
+const pathRe = /^meme\/(.+)\..*/
 
 function random(min, max) {
     return Math.round(Math.random() * (max - min)) + min;
@@ -23,7 +23,7 @@ function createEleByTemp(id, obj) {
 function initMainContent() {
     let cur = NaN
 
-    document.querySelector('#desc').innerHTML = `NoneBot 群大佬们的日常，目前已有 ${config.count} 张。`
+    document.querySelector('#desc').innerHTML = `NoneBot 群大佬们的日常，目前已有 ${sortedItems.length} 张。`
     const hashVal = decodeURIComponent(location.hash.replace(/^#(.*)/, '$1'))
     switch (hashVal) {
         case '':
@@ -36,14 +36,14 @@ function initMainContent() {
             break
     }
     if (isNaN(cur)) {
-        cur = random(1, config.count)
+        cur = random(1, sortedItems.length)
     }
     const title = document.querySelector('#mainContent > div.header > a.title')
     const downloadMemeImg = document.querySelector('#mainContent > div.header > div.opts > a.material-icons.download')
     const refreshMemeImg = document.querySelector('#mainContent > div.header > div.opts > span.material-icons.refresh')
     const memeImg = document.getElementById('memeImg')
     refreshMemeImg.onclick = () => {
-        cur = random(1, config.count)
+        cur = random(1, sortedItems.length)
         setupMemeImg(memeImg)
     }
     memeImg.onload = () => {
@@ -79,8 +79,8 @@ function initGallary() {
     updateGallary()
 
     function updateGallary() {
-        const start = random(1, config.count)
-        const end = random(start, config.count)
+        const start = random(1, sortedItems.length)
+        const end = random(start, sortedItems.length)
         gallaryContainer.innerHTML = ''
         gallaryContainer.append(
             ...sortedItems
@@ -99,6 +99,35 @@ function initGallary() {
 }
 
 (() => {
-    initMainContent()
-    initGallary()
+    // 开发环境
+    if (development) {
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', '../meme/')
+        xhr.addEventListener('load', () => {
+            for (let i of domParser.parseFromString(xhr.response, 'text/html').querySelectorAll('#files a.icon-image')) {
+                sortedItems.push(decodeURIComponent(i.href.match(/meme\/.+\.(jpg|png|jfif|webp|gif)/)[0]))
+            }
+            initMainContent()
+            initGallary()
+        })
+        xhr.send()
+
+    // 生产环境
+    } else {
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', api)
+        xhr.addEventListener('load', () => {
+            for (let i of JSON.parse(xhr.response)) {
+                itsortedItemsem.push(decodeURIComponent(i.download_url.match(/meme\/.+\.(jpg|png|jfif|webp|gif)/)[0]))
+            }
+
+            initMainContent()
+            initGallary()
+        })
+        xhr.addEventListener('error')
+        xhr.send()
+    }
+
+    sortedItems.sort((a, b) => a.replace(pathRe, '$1') > b.replace(pathRe, '$1') ? 1 : -1)
+    console.log(sortedItems)
 })()
