@@ -21,6 +21,19 @@ function createEleByTemp(id, obj) {
         .reduce((old, [key, val]) => old.replaceAll(`\${${key}}`, val), document.getElementById(id).innerHTML)
     return temp.children[0]
 }
+/**
+ * @param {String} url 
+ * @returns {Promise<XMLHttpRequest>}
+ */
+function get(url) {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', url)
+        xhr.addEventListener('load', () => resolve(xhr))
+        xhr.addEventListener('error', () => reject(xhr))
+        xhr.send()
+    })
+}
 
 function initMainContent() {
     let cur = NaN
@@ -100,35 +113,20 @@ function initGallary() {
     }
 }
 
-(() => {
+(async () => {
     // 开发环境
     if (development) {
-        const xhr = new XMLHttpRequest()
-        xhr.open('GET', '../meme/')
-        xhr.addEventListener('load', () => {
-            for (let i of domParser.parseFromString(xhr.response, 'text/html').querySelectorAll('#files a.icon-image')) {
+        for (let i of domParser.parseFromString((await get('../meme/')).response, 'text/html').querySelectorAll('#files a.icon-image')) {
                 sortedItems.push(decodeURIComponent(i.href.match(/meme\/.+\.(jpg|png|jfif|webp|gif)/)[0]))
-            }
-            initMainContent()
-            initGallary()
-        })
-        xhr.send()
-
+        }
     // 生产环境
     } else {
-        const xhr = new XMLHttpRequest()
-        xhr.open('GET', api)
-        xhr.addEventListener('load', () => {
-            for (let i of JSON.parse(xhr.response)) {
-                itsortedItemsem.push(decodeURIComponent(i.download_url.match(/meme\/.+\.(jpg|png|jfif|webp|gif)/)[0]))
-            }
-
-            initMainContent()
-            initGallary()
-        })
-        xhr.addEventListener('error')
-        xhr.send()
+        for (let i of JSON.parse((await get(api)).response)) {
+            itsortedItemsem.push(decodeURIComponent(i.download_url.match(/meme\/.+\.(jpg|png|jfif|webp|gif)/)[0]))
+        }
     }
+    initMainContent()
+    initGallary()
 
     sortedItems.sort((a, b) => a.replace(pathRe, '$1') > b.replace(pathRe, '$1') ? 1 : -1)
 })()
