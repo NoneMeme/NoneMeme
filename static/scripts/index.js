@@ -1,10 +1,11 @@
+import config from "./config"
+
 /** @type {string[]} */
 const sortedItems = []
 const development = location.host.search(/.+\.github\.io/) == -1
 
 const domParser = new DOMParser()
 const pathRe = /^meme\/(.+)\..*/
-const api = 'https://api.github.com/repos/NoneMeme/NoneMeme/contents/meme'
 
 function random(min, max) {
     return Math.round(Math.random() * (max - min)) + min;
@@ -121,7 +122,7 @@ function initGallary() {
         }
     // 生产环境
     } else {
-        for (let i of JSON.parse((await get(api)).response)) {
+        for (let i of JSON.parse((await get(config.api)).response)) {
             itsortedItemsem.push(decodeURIComponent(i.download_url.match(/meme\/.+\.(jpg|png|jfif|webp|gif)/)[0]))
         }
     }
