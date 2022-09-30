@@ -1,6 +1,6 @@
 /** @type {string[]} */
 const sortedItems = []
-const development = location.host.search('127.0.0.1') != -1 || location.host.search('localhost') != -1
+const development = location.host.search(/.+\.github\.io/) == -1
 
 const domParser = new DOMParser()
 const pathRe = /^meme\/(.+)\..*/
@@ -131,5 +131,4 @@ function initGallary() {
     }
 
     sortedItems.sort((a, b) => a.replace(pathRe, '$1') > b.replace(pathRe, '$1') ? 1 : -1)
-    console.log(sortedItems)
 })()
