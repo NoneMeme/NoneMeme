@@ -1,20 +1,27 @@
 import config from "./config.js"
 
+const development = location.host.search(/.+\.github\.io/) === -1
+const domParser = new DOMParser()   
 /** @type {string[]} */
-const sortedItems = []
-const development = location.host.search(/.+\.github\.io/) == -1
+let item = []
+let displayedItemCount = 0
 
-const domParser = new DOMParser()
-const pathRe = /^meme\/(.+)\..*/
+const galleryIO = new IntersectionObserver(entries => {
+    if (entries[0].intersectionRatio > 0 && displayedItemCount < item.length) loadgallery(10)
+})
 
-function random(min, max) {
+/**
+ * 
+ * @param {Number} min 
+ * @param {Number} max 
+ * @returns {Number}
+ */
+function random(max, min) {
     return Math.round(Math.random() * (max - min)) + min;
 }
 
 /**
- * @param id  {string}
- * @param obj {Record<string, any>}
- * @returns {Element}
+ * @param {Number} time 
  */
 function createEleByTemp(id, obj) {
     const temp = document.createElement('div')
@@ -22,6 +29,7 @@ function createEleByTemp(id, obj) {
         .reduce((old, [key, val]) => old.replaceAll(`\${${key}}`, val), document.getElementById(id).innerHTML)
     return temp.children[0]
 }
+
 /**
  * @param {String} url 
  * @returns {Promise<XMLHttpRequest>}
@@ -36,98 +44,82 @@ function get(url) {
     })
 }
 
-function initMainContent() {
-    let cur = NaN
+async function loadgallery(remainItemCount) {
+    if (remainItemCount <= 0 || displayedItemCount >= item.length) {
+        galleryIO.observe(document.getElementById('footer'))
+        return
+    }
+    galleryIO.unobserve(document.getElementById('footer'))
+    
+    // 获取高度最小的列
+    const column = [document.getElementById('col1'), document.getElementById('col2'), document.getElementById('col3')]
+    .sort((a, b) => a.offsetHeight - b.offsetHeight)[0]
 
-    document.querySelector('#desc').innerHTML = `NoneBot 群大佬们的日常，目前已有 ${sortedItems.length} 张。`
-    const hashVal = decodeURIComponent(location.hash.replace(/^#(.*)/, '$1'))
-    switch (hashVal) {
-        case '':
-            break
-        case 'gallery':
-            break
-        default:
-            const i = sortedItems.findIndex(i => i.startsWith(`meme/${hashVal}`))
-            cur = i === -1 ? NaN : (i + 1)
-            break
-    }
-    if (isNaN(cur)) {
-        cur = random(1, sortedItems.length)
-    }
-    const title = document.querySelector('#mainContent > div.header > a.title')
-    const downloadMemeImg = document.querySelector('#mainContent > div.header > div.opts > a.material-icons.download')
-    const refreshMemeImg = document.querySelector('#mainContent > div.header > div.opts > span.material-icons.refresh')
-    const memeImg = document.getElementById('memeImg')
-    refreshMemeImg.onclick = () => {
-        cur = random(1, sortedItems.length)
-        setupMemeImg(memeImg)
-    }
-    memeImg.onload = () => {
-        title.ariaBusy = 'false'
-    }
-    memeImg.onclick = refreshMemeImg.onclick
+    const node = createEleByTemp('gallery-item', {
+        id: `#${item[displayedItemCount].match(/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`,
+        src: `/meme/${item[displayedItemCount]}`,
+        alt: item[displayedItemCount],
+        title: `# ${item[displayedItemCount].match(/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`,
+    })
 
-    function setupMemeImg(img) {
-        const item = sortedItems[cur - 1]
-        const name = item.replace(pathRe, '$1')
-        title.ariaBusy = 'true'
-        title.innerText = `# ${name}`
-        title.id = name
-        location.hash = title.href = `#${name}`
-        img.src = item
-        downloadMemeImg.href = img.src
-    }
-
-    setupMemeImg(memeImg)
-
-    window.onhashchange = () => {
-        initMainContent()
-    }
+    // 加载好以后再执行下一个图片的加载以保证顺序没问题
+    node.querySelector('img').addEventListener('load', () => loadgallery(remainItemCount - 1))
+    column.append(node)
+    displayedItemCount += 1
+    
 }
 
-function initGallary() {
-    const gallary = document.querySelector('#gallery')
-    const gallaryContainer = gallary.querySelector('div.gallery__container')
-    const refreshGallary = gallary.querySelector('div.header > div.opts > span.material-icons.refresh')
-
-    refreshGallary.onclick = updateGallary
-
-    updateGallary()
-
-    function updateGallary() {
-        const start = random(1, sortedItems.length)
-        const end = random(start, sortedItems.length)
-        gallaryContainer.innerHTML = ''
-        gallaryContainer.append(
-            ...sortedItems
-                .slice(start, end)
-                .map(item => {
-                    const name = item.replace(pathRe, '$1')
-                    return createEleByTemp('galleryItem', {
-                        id: `#${name}`,
-                        src: item,
-                        alt: item.replace(/^meme\/(.*)/, '$1'),
-                        title: `# ${name}`,
-                    })
-                })
-        )
+function view() {
+    if (!location.hash) document.getElementById('view').style.display = 'none'
+    else document.getElementById('view').style.display = 'block'
+    let name = decodeURIComponent(location.hash.substring(1, location.hash.length))
+    document.querySelector('#view h2').innerHTML = `# ${name}`
+    for (const i of item) {
+        if (i.startsWith(name)) {
+            name = i
+            break
+        }
     }
+    
+    document.querySelector('#view img').src = `/meme/${name}`
+    document.querySelector('#view img').alt = name
+    document.querySelector('#view a').href = `/meme/${name}`
+    window.scrollTo({
+        top: document.getElementById('view').offsetTop,
+        behavior: 'smooth'
+    })
+}
+
+async function initgallery() {
+    document.getElementById('description').innerHTML = `NoneBot 群大佬们的日常，目前已有 ${item.length} 张。`
+    for (let i = 0; i < item.length - 1; i++) {
+        const j = random(item.length - 1, i)
+        const temp = item[i]
+        item[i] = item[j]
+        item[j] = temp
+    }
+    await loadgallery(10)
+    galleryIO.observe(document.getElementById('footer'))
+    view()
 }
 
 (async () => {
-    // 开发环境
+    /** 
+     * 判断使用何种API, 获取图片列表
+     */
+    
+    // 开发环境(使用live server)
     if (development) {
-        for (let i of domParser.parseFromString((await get('../meme/')).response, 'text/html').querySelectorAll('#files a.icon-image')) {
-                sortedItems.push(decodeURIComponent(i.href.match(/meme\/.+\.(jpg|png|jfif|webp|gif)/)[0]))
+        for (const i of domParser.parseFromString((await get('../meme/')).response, 'text/html').querySelectorAll('#files a.icon-image')) {
+            item.push(decodeURIComponent(i.href.match(/(?<=meme\/).+\.(jpg|png|jfif|webp|gif)/)[0]))
         }
+    
     // 生产环境
     } else {
-        for (let i of JSON.parse((await get(config.api)).response)) {
-            sortedItems.push(decodeURIComponent(i.download_url.match(/meme\/.+\.(jpg|png|jfif|webp|gif)/)[0]))
+        for (const i of JSON.parse((await get(config.api)).response)) {
+            item.push(decodeURIComponent(i.download_url.match(/(?<=meme\/).+\.(jpg|png|jfif|webp|gif)/)[0]))
         }
     }
-    initMainContent()
-    initGallary()
-
-    sortedItems.sort((a, b) => a.replace(pathRe, '$1') > b.replace(pathRe, '$1') ? 1 : -1)
+    initgallery()
+    window.addEventListener('hashchange', view)
 })()
