@@ -123,7 +123,7 @@ function initGallary() {
     // 生产环境
     } else {
         for (let i of JSON.parse((await get(config.api)).response)) {
-            itsortedItemsem.push(decodeURIComponent(i.download_url.match(/meme\/.+\.(jpg|png|jfif|webp|gif)/)[0]))
+            sortedItems.push(decodeURIComponent(i.download_url.match(/meme\/.+\.(jpg|png|jfif|webp|gif)/)[0]))
         }
     }
     initMainContent()
