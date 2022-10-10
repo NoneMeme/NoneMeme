@@ -2,7 +2,7 @@
     text-align: center;
 }
 
-#view div {
+#view>div {
     display: flex;
     justify-content: space-between;
 }
@@ -34,7 +34,7 @@
     align-items: stretch;
 }
 
-.item span {
+article.item>a>span {
     color: var(--h3-color);
     font-size: 15px;
     text-align: center;

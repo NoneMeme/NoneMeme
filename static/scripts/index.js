@@ -12,16 +12,18 @@ const galleryIO = new IntersectionObserver(entries => {
 
 /**
  * 
- * @param {Number} min 
- * @param {Number} max 
- * @returns {Number}
+ * @param {number} min 
+ * @param {number} max 
+ * @returns {number}
  */
 function random(max, min) {
     return Math.round(Math.random() * (max - min)) + min;
 }
 
 /**
- * @param {Number} time 
+ * @param {string} id 
+ * @param {Record<string, any>} obj 
+ * @returns {Element}
  */
 function createEleByTemp(id, obj) {
     const temp = document.createElement('div')
@@ -31,7 +33,7 @@ function createEleByTemp(id, obj) {
 }
 
 /**
- * @param {String} url 
+ * @param {string} url 
  * @returns {Promise<XMLHttpRequest>}
  */
 function get(url) {
@@ -52,8 +54,11 @@ async function loadgallery(remainItemCount) {
     galleryIO.unobserve(document.getElementById('footer'))
     
     // 获取高度最小的列
-    const column = [document.getElementById('col1'), document.getElementById('col2'), document.getElementById('col3')]
-    .sort((a, b) => a.offsetHeight - b.offsetHeight)[0]
+    const column = [
+        document.getElementById('col1'),
+        document.getElementById('col2'),
+        document.getElementById('col3'),
+    ].sort((a, b) => a.offsetHeight - b.offsetHeight)[0]
 
     const node = createEleByTemp('gallery-item', {
         id: `#${item[displayedItemCount].match(/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`,
@@ -66,14 +71,16 @@ async function loadgallery(remainItemCount) {
     node.querySelector('img').addEventListener('load', () => loadgallery(remainItemCount - 1))
     column.append(node)
     displayedItemCount += 1
-    
 }
 
 function view() {
-    if (!location.hash) document.getElementById('view').style.display = 'none'
-    else document.getElementById('view').style.display = 'block'
+    const view = document.getElementById('view')
+    view.style.display = {
+        true: 'none',
+        false: 'block',
+    }[!location.hash || location.hash == '#']
     let name = decodeURIComponent(location.hash.substring(1, location.hash.length))
-    document.querySelector('#view h2').innerHTML = `# ${name}`
+    view.querySelector('h2').innerHTML = `# ${name}`
     for (const i of item) {
         if (i.startsWith(name)) {
             name = i
@@ -81,11 +88,11 @@ function view() {
         }
     }
     
-    document.querySelector('#view img').src = `/meme/${name}`
-    document.querySelector('#view img').alt = name
-    document.querySelector('#view a').href = `/meme/${name}`
+    view.querySelector('img').src = `/meme/${name}`
+    view.querySelector('img').alt = name
+    view.querySelector('a').href = `/meme/${name}`
     window.scrollTo({
-        top: document.getElementById('view').offsetTop,
+        top: view.offsetTop,
         behavior: 'smooth'
     })
 }
@@ -105,10 +112,10 @@ async function initgallery() {
 
 (async () => {
     /** 
-     * 判断使用何种API, 获取图片列表
+     * 判断使用何种 API , 获取图片列表
      */
     
-    // 开发环境(使用live server)
+    // 开发环境(使用 live server)
     if (development) {
         for (const i of domParser.parseFromString((await get('../meme/')).response, 'text/html').querySelectorAll('#files a.icon-image')) {
             item.push(decodeURIComponent(i.href.match(/(?<=meme\/).+\.(jpg|png|jfif|webp|gif)/)[0]))
