@@ -62,7 +62,7 @@ async function loadgallery(remainItemCount) {
 
     const node = createEleByTemp('gallery-item', {
         id: `#${item[displayedItemCount].match(/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`,
-        src: `/meme/${item[displayedItemCount]}`,
+        src: `./meme/${item[displayedItemCount]}`,
         alt: item[displayedItemCount],
         title: `# ${item[displayedItemCount].match(/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`,
     })
@@ -88,9 +88,9 @@ function view() {
         }
     }
     
-    view.querySelector('img').src = `/meme/${name}`
+    view.querySelector('img').src = `./meme/${name}`
     view.querySelector('img').alt = name
-    view.querySelector('a').href = `/meme/${name}`
+    view.querySelector('a').href = `./meme/${name}`
     window.scrollTo({
         top: view.offsetTop,
         behavior: 'smooth'
