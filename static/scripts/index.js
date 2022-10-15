@@ -99,6 +99,9 @@ function view() {
 
 async function initgallery() {
     document.getElementById('description').innerHTML = `NoneBot 群大佬们的日常，目前已有 ${items.length} 张。`
+    document.getElementById('refresh-btn').onclick = () => {
+        location.hash = `#${items[random(items.length - 1, 0)].match(/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`
+    }
     for (let i = 0; i < items.length - 1; i++) {
         const j = random(items.length - 1, i)
         const temp = items[i]
