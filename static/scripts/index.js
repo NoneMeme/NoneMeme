@@ -121,12 +121,9 @@ async function initgallery() {
             item.push(decodeURIComponent(i.href.match(/(?<=meme\/).+\.(jpg|png|jfif|webp|gif)/)[0]))
         }
     
-    // 生产环境
-    } else {
-        for (const i of JSON.parse((await get(config.api)).response)) {
-            item.push(decodeURIComponent(i.download_url.match(/(?<=meme\/).+\.(jpg|png|jfif|webp|gif)/)[0]))
-        }
-    }
+    // 生产环境(使用静态文件)
+    } else item = config.items
+    
     initgallery()
     window.addEventListener('hashchange', view)
 })()
