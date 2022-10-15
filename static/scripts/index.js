@@ -3,11 +3,11 @@ import config from "./config.js"
 const development = location.host.search(/.+\.github\.io/) === -1
 const domParser = new DOMParser()   
 /** @type {string[]} */
-let item = []
+let items = []
 let displayedItemCount = 0
 
 const galleryIO = new IntersectionObserver(entries => {
-    if (entries[0].intersectionRatio > 0 && displayedItemCount < item.length) loadgallery(10)
+    if (entries[0].intersectionRatio > 0 && displayedItemCount < items.length) loadgallery(10)
 })
 
 /**
@@ -47,7 +47,7 @@ function get(url) {
 }
 
 async function loadgallery(remainItemCount) {
-    if (remainItemCount <= 0 || displayedItemCount >= item.length) {
+    if (remainItemCount <= 0 || displayedItemCount >= items.length) {
         galleryIO.observe(document.getElementById('footer'))
         return
     }
@@ -61,10 +61,10 @@ async function loadgallery(remainItemCount) {
     ].sort((a, b) => a.offsetHeight - b.offsetHeight)[0]
 
     const node = createEleByTemp('gallery-item', {
-        id: `#${item[displayedItemCount].match(/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`,
-        src: `./meme/${item[displayedItemCount]}`,
-        alt: item[displayedItemCount],
-        title: `# ${item[displayedItemCount].match(/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`,
+        id: `#${items[displayedItemCount].match(/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`,
+        src: `./meme/${items[displayedItemCount]}`,
+        alt: items[displayedItemCount],
+        title: `# ${items[displayedItemCount].match(/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`,
     })
 
     // 加载好以后再执行下一个图片的加载以保证顺序没问题
@@ -81,7 +81,7 @@ function view() {
     }[!location.hash || location.hash == '#']
     let name = decodeURIComponent(location.hash.substring(1, location.hash.length))
     view.querySelector('h2').innerHTML = `# ${name}`
-    for (const i of item) {
+    for (const i of items) {
         if (i.startsWith(name)) {
             name = i
             break
@@ -98,12 +98,12 @@ function view() {
 }
 
 async function initgallery() {
-    document.getElementById('description').innerHTML = `NoneBot 群大佬们的日常，目前已有 ${item.length} 张。`
-    for (let i = 0; i < item.length - 1; i++) {
-        const j = random(item.length - 1, i)
-        const temp = item[i]
-        item[i] = item[j]
-        item[j] = temp
+    document.getElementById('description').innerHTML = `NoneBot 群大佬们的日常，目前已有 ${items.length} 张。`
+    for (let i = 0; i < items.length - 1; i++) {
+        const j = random(items.length - 1, i)
+        const temp = items[i]
+        items[i] = items[j]
+        items[j] = temp
     }
     await loadgallery(10)
     galleryIO.observe(document.getElementById('footer'))
@@ -118,11 +118,11 @@ async function initgallery() {
     // 开发环境(使用 live server)
     if (development) {
         for (const i of domParser.parseFromString((await get('../meme/')).response, 'text/html').querySelectorAll('#files a.icon-image')) {
-            item.push(decodeURIComponent(i.href.match(/(?<=meme\/).+\.(jpg|png|jfif|webp|gif)/)[0]))
+            items.push(decodeURIComponent(i.href.match(/(?<=meme\/).+\.(jpg|png|jfif|webp|gif)/)[0]))
         }
     
     // 生产环境(使用静态文件)
-    } else item = config.items
+    } else items = config.items
     
     initgallery()
     window.addEventListener('hashchange', view)
