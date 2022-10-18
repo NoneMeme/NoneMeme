@@ -1,7 +1,7 @@
 import config from "./config.js"
 
 const development = location.host.search(/.+\.github\.io/) === -1
-const domParser = new DOMParser()   
+const domParser = new DOMParser()
 /** @type {string[]} */
 let items = []
 let displayedItemCount = 0
@@ -52,7 +52,7 @@ async function loadgallery(remainItemCount) {
         return
     }
     galleryIO.unobserve(document.getElementById('footer'))
-    
+
     // 获取高度最小的列
     const column = [
         document.getElementById('col1'),
@@ -87,7 +87,7 @@ function view() {
             break
         }
     }
-    
+
     view.querySelector('img').src = `./${name}`
     view.querySelector('img').alt = name
     view.querySelector('a').href = `./${name}`
@@ -117,16 +117,16 @@ async function initgallery() {
     /** 
      * 判断使用何种 API , 获取图片列表
      */
-    
+
     // 开发环境(使用 live server)
-    if (false) {
+    if (development) {
         for (const i of domParser.parseFromString((await get('../meme/')).response, 'text/html').querySelectorAll('#files a.icon-image')) {
             items.push(decodeURIComponent(i.href.match(/(?<=meme\/).+\.(jpg|png|jfif|webp|gif)/)[0]))
         }
-    
-    // 生产环境(使用静态文件)
+
+        // 生产环境(使用静态文件)
     } else items = config.items
-    
+
     initgallery()
     window.addEventListener('hashchange', view)
 })()
