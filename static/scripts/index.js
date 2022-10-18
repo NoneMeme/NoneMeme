@@ -82,7 +82,7 @@ function view() {
     let name = decodeURIComponent(location.hash.substring(1, location.hash.length))
     view.querySelector('h2').innerHTML = `# ${name}`
     for (const i of items) {
-        if (i.startsWith(name)) {
+        if (i.search(/meme\/(.+)\.(jpg|png|jfif|webp|gif)/ != -1)) {
             name = i
             break
         }
@@ -119,7 +119,7 @@ async function initgallery() {
      */
     
     // 开发环境(使用 live server)
-    if (development) {
+    if (false) {
         for (const i of domParser.parseFromString((await get('../meme/')).response, 'text/html').querySelectorAll('#files a.icon-image')) {
             items.push(decodeURIComponent(i.href.match(/(?<=meme\/).+\.(jpg|png|jfif|webp|gif)/)[0]))
         }
