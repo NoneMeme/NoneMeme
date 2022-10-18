@@ -82,7 +82,7 @@ function view() {
     let name = decodeURIComponent(location.hash.substring(1, location.hash.length))
     view.querySelector('h2').innerHTML = `# ${name}`
     for (const i of items) {
-        if (i.search(new RegExp(`/meme\/${name}\.(jpg|png|jfif|webp|gif)`) != -1)) {
+        if (i.search(new RegExp(`meme/${name}\.(jpg|png|jfif|webp|gif)`)) != -1) {
             name = i
             break
         }
