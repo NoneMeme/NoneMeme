@@ -61,10 +61,10 @@ async function loadgallery(remainItemCount) {
     ].sort((a, b) => a.offsetHeight - b.offsetHeight)[0]
 
     const node = createEleByTemp('gallery-item', {
-        id: `#${items[displayedItemCount].match(/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`,
-        src: `./meme/${items[displayedItemCount]}`,
+        id: `#${items[displayedItemCount].match(/meme\/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`,
+        src: `./${items[displayedItemCount]}`,
         alt: items[displayedItemCount],
-        title: `# ${items[displayedItemCount].match(/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`,
+        title: `# ${items[displayedItemCount].match(/meme\/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`,
     })
 
     // 加载好以后再执行下一个图片的加载以保证顺序没问题
@@ -88,9 +88,9 @@ function view() {
         }
     }
     
-    view.querySelector('img').src = `./meme/${name}`
+    view.querySelector('img').src = `./${name}`
     view.querySelector('img').alt = name
-    view.querySelector('a').href = `./meme/${name}`
+    view.querySelector('a').href = `./${name}`
     window.scrollTo({
         top: view.offsetTop,
         behavior: 'smooth'
@@ -100,7 +100,7 @@ function view() {
 async function initgallery() {
     document.getElementById('description').innerHTML = `NoneBot 群大佬们的日常，目前已有 ${items.length} 张。`
     document.getElementById('refresh-btn').onclick = () => {
-        location.hash = `#${items[random(items.length - 1, 0)].match(/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`
+        location.hash = `#${items[random(items.length - 1, 0)].match(/meme\/(.+)\.(jpg|png|jfif|webp|gif)/)[1]}`
     }
     for (let i = 0; i < items.length - 1; i++) {
         const j = random(items.length - 1, i)
