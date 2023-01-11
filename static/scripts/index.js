@@ -1,6 +1,6 @@
 import config from "./config.js"
 
-const development = location.host.search(/.+\.github\.io/) === -1
+const development = location.host.search(/.+\.github\.io/) === -1 && location.host.search(/nonememe\.icu/) === -1
 const domParser = new DOMParser()
 /** @type {string[]} */
 let items = []
