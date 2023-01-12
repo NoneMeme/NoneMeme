@@ -17,6 +17,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.ref }}
+      - name: remove previous build
+        run: |
+          rm ./text/*
       - name: generate directory
         run: |
           ./shell/genartlist.sh
