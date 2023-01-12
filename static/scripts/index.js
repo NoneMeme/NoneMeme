@@ -69,14 +69,14 @@ async function loadgallery(remainItemCount) {
         id: `#${
             items[displayedItemCount].match(
                 /meme\/(.+)\.(jpg|png|jfif|webp|gif)/
-            )[0]
+            )[1]
         }`,
         src: `./${items[displayedItemCount]}`,
         alt: items[displayedItemCount],
         title: `# ${
             items[displayedItemCount].match(
                 /meme\/(.+)\.(jpg|png|jfif|webp|gif)/
-            )[0]
+            )[1]
         }`,
     });
 
