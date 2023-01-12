@@ -9,6 +9,8 @@
 
 #view a {
     color: var(--h3-color);
+    text-decoration: none;
+    cursor: default;
 }
 
 #view img {

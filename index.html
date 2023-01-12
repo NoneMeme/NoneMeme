@@ -9,35 +9,56 @@
     <link rel="icon" href="./static/favicon.ico">
     <title>NoneBot 梗 | NoneBot 群大佬们的日常</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.0/css/pico.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="./static/style.css">
 </head>
 
 <body>
     <main class="container">
         <h1>NoneBot 梗</h1>
-        <h5 id="description"></h2>
-        <article id="view">
-            <div>
-                <h2></h2>
+        <h5 id="description">
+            </h2>
+            <article id="view">
                 <div>
-                    <a download class="material-icons download">download</a>
-                    <span class="material-icons refresh" id="refresh-btn" title="梗图不喜欢？换一张试试看">refresh</span>
+                    <h2></h2>
+                    <div>
+                        <a download title="下载图片">
+                            <svg width="32" height="32" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor">
+                                <path
+                                    d="M5.36891 8.08074L7.50833 10.2202V4.46802H8.50833V10.1473L10.5749 8.08074L11.282 8.78784L8.32545 11.7444H7.61835L4.6618 8.78784L5.36891 8.08074Z" />
+                                <path
+                                    d="M14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14C11.3137 14 14 11.3137 14 8ZM13 8C13 10.7614 10.7614 13 8 13C5.23858 13 3 10.7614 3 8C3 5.23858 5.23858 3 8 3C10.7614 3 13 5.23858 13 8Z" />
+                            </svg>
+                        </a>
+                        <span id="refresh-btn" title="梗图不喜欢？换一张试试看">
+                            <svg width="32" height="32" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M4.681 3H2V2h3.5l.5.5V6H5V4a5 5 0 1 0 4.53-.761l.302-.954A6 6 0 1 1 4.681 3z" />
+                            </svg>
+                        </span>
+                        <a href="#" title="返回画廊">
+                            <svg width="40" height="40" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M8 8.707l3.646 3.647.708-.707L8.707 8l3.647-3.646-.707-.708L8 7.293 4.354 3.646l-.707.708L7.293 8l-3.646 3.646.707.708L8 8.707z" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            
-            <img alt="查看大图">
-        </article>
-        <div id="gallery">
-            <div class="column" id="col1"></div>
-            <div class="column" id="col2"></div>
-            <div class="column" id="col3"></div>
-        </div>
 
-        <footer id="footer">
-            <p>· NoneBot 闲聊群 · 堂堂连载 ·</p>
-            <p><a href="https://github.com/NoneMeme/NoneMeme">看完了吗？感兴趣的话， 可以来 GitHub 投稿哦！</a></p>
-        </footer>
+                <img alt="查看大图">
+            </article>
+            <div id="gallery">
+                <div class="column" id="col1"></div>
+                <div class="column" id="col2"></div>
+                <div class="column" id="col3"></div>
+            </div>
+
+            <footer id="footer">
+                <p>· NoneBot 闲聊群 · 堂堂连载 ·</p>
+                <p><a href="https://github.com/NoneMeme/NoneMeme">看完了吗？感兴趣的话， 可以来 GitHub 投稿哦！</a></p>
+            </footer>
     </main>
 
     <template id="gallery-item">
