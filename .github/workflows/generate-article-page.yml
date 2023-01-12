@@ -1,0 +1,33 @@
+name: Generate article page
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'art/*'
+      - 'shell/art2text.sh'
+      - 'shell/genartlist.sh'
+
+jobs:
+  generate-article-page:
+    name: Generate article page
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+      - name: generate directory
+        run: |
+          ./shell/genartlist.sh
+      - name: build article
+        run: |
+          ./shell/art2text.sh
+          git add text
+      - uses: stefanzweifel/git-auto-commit-action@v2.3.0
+        with:
+          commit_message: 'chore: update article page'
+          branch: ${{ github.ref_name }}
+          file_pattern: text
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
