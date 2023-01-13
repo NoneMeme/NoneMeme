@@ -20,7 +20,6 @@ jobs:
           ref: ${{ github.ref }}
       - name: build config
         run: |
-          chmod +x ./shell/computed.sh
           ./shell/computed.sh
           cat static/scripts/config.js
           git add static/scripts/config.js
