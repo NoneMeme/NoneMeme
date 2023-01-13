@@ -7,8 +7,9 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 
 import { getMemeList } from '@/lib/build';
+import type { GetStaticProps } from 'next';
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<{ memeList: string[] }> = async () => {
 	return { props: { memeList: await getMemeList() } };
 }
 
