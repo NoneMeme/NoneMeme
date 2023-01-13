@@ -1,10 +1,10 @@
+import React from 'react';
+
 import Head from 'next/head';
 
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
 
 import { getMemeList } from '@/lib/build';
 import type { GetStaticProps } from 'next';
@@ -14,6 +14,10 @@ export const getStaticProps: GetStaticProps<{ memeList: string[] }> = async () =
 }
 
 export default function Home({ memeList }: { memeList: string[] }) {
+	const [memeIndex, setMemeIndex] = React.useState<number | undefined>(undefined);
+
+	React.useEffect(() => setMemeIndex(Math.floor(Math.random() * memeList.length)), []);
+
 	return (
 		<>
 			<Head>
@@ -24,13 +28,9 @@ export default function Home({ memeList }: { memeList: string[] }) {
 			<Box p={2}>
 				<Stack spacing={2}>
 					<Typography variant="h3" component="h1" align="center" gutterBottom>NoneBot梗</Typography>
-					<ImageList variant="masonry" cols={3} gap={8}>
-						{ memeList.map(meme => (
-							<ImageListItem key={meme}>
-								<img src={`meme/${meme}`} alt={meme} loading="lazy" />
-							</ImageListItem>
-						)) }
-					</ImageList>
+					<Stack direction="column" justifyContent="center" alignItems="center">
+						{memeIndex ? <img src={`meme/${memeList[memeIndex]}`} alt={memeList[memeIndex]} loading="lazy" /> : undefined}
+					</Stack>
 				</Stack>
 			</Box>
 		</>
