@@ -33,8 +33,7 @@ do
 
 <body>
     <main class="container">
-        <a href="../index.html"><h1>NoneBot 梗</h1></a>
-        
+        <h1>NoneBot 梗 | <a href="/">图片梗</a></h1>
         <h5 id="description"></h5>
         <article id="view">
             <github-md>
