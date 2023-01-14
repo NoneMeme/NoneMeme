@@ -20,10 +20,10 @@ do
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="NoneBot 群大佬们的日常">
-    <link rel="icon" href="../static/favicon.ico">
+    <link rel="icon" href="/static/favicon.ico">
     <title>NoneBot 梗 | NoneBot 群大佬们的日常</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.0/css/pico.min.css">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <style>
         #view {
             text-align: left;
@@ -33,8 +33,7 @@ do
 
 <body>
     <main class="container">
-        <h1>NoneBot 梗 | <a href="/">图片梗</a></h1>
-        <h5 id="description"></h5>
+        <h1>NoneBot 梗 | <a href="/text">文字梗</a></h1>
         <article id="view">
             <github-md>
 EOF
