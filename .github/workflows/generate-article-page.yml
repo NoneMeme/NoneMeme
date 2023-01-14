@@ -8,6 +8,7 @@ on:
       - 'art/*'
       - 'shell/art2text.sh'
       - 'shell/genartlist.sh'
+      - '.github/workflows/generate-article-page.yml'
 
 jobs:
   generate-article-page:
@@ -26,11 +27,9 @@ jobs:
       - name: build article
         run: |
           ./shell/art2text.sh
-          git add text
-      - uses: stefanzweifel/git-auto-commit-action@v2.3.0
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'chore: update article page'
-          branch: ${{ github.ref_name }}
-          file_pattern: text
+          file_pattern: 'text/*.html'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
