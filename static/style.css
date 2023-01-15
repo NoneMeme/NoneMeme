@@ -2,13 +2,15 @@
     text-align: center;
 }
 
-#view>div {
+#view > div {
     display: flex;
     justify-content: space-between;
 }
 
 #view a {
     color: var(--h3-color);
+    text-decoration: none;
+    cursor: default;
 }
 
 #view img {
@@ -25,7 +27,6 @@
     width: 33%;
 }
 
-
 .item {
     margin: 10px 0;
     padding: 50px 20px;
@@ -38,7 +39,7 @@
     align-items: stretch;
 }
 
-article.item>a>span {
+article.item > a > span {
     color: var(--h3-color);
     font-size: 15px;
     text-align: center;
@@ -51,7 +52,7 @@ footer {
     text-align: center;
 }
 
-@keyframes fadeInUp{
+@keyframes fadeInUp {
     0% {
         opacity: 0;
         transform: translateY(50px);
@@ -59,6 +60,5 @@ footer {
     100% {
         opacity: 1;
         transform: translateY(0);
-
     }
 }
