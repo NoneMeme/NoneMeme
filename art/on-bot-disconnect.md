@@ -1,8 +1,8 @@
 # on_bot_disconnect
 
-![1674876322125](image/on-bot-disconnect/1674876322125.jpg)
+![1674876322125](../static/image/1674876322125.jpg)
 
-![1674876343614](image/on-bot-disconnect/1674876343614.jpg)
+![1674876343614](../static/image/1674876343614.jpg)
 
 - 同样的代码为啥on_bot_disconnect里就报错了
 - bot都断开连接了，哪里还有bot
@@ -12,7 +12,7 @@
 - 那这是要预判什么时候断开连接吗
 - on_shutdown试试（）
 
-![1674876513130](image/on-bot-disconnect/1674876513130.jpg)
+![1674876513130](../static/image/1674876513130.jpg)
 
 - 好像也不行
 - 接不到bot了
@@ -85,6 +85,6 @@ async def get():
 - 草
 - nonebrain run
 
-![1674877046276](image/on-bot-disconnect/1674877046276.jpg)
+![1674877046276](../static/image/1674877046276.jpg)
 
 - ot结束
