@@ -22,25 +22,25 @@
         <h1>NoneBot 梗 | <a href="/text">文字梗</a></h1>
         <article id="view">
             <github-md>
-# on_bot_disconnect
+# `on_bot_disconnect`
 
 ![1674876322125](../static/image/1674876322125.jpg)
 
 ![1674876343614](../static/image/1674876343614.jpg)
 
-- 同样的代码为啥on_bot_disconnect里就报错了
+- 同样的代码为啥`on_bot_disconnect`里就报错了
 - bot都断开连接了，哪里还有bot
 - 那搞不了断开连接时发送群消息了吗
 - 你可以先发消息再断开连接
 - 你可以用其他bot号发，或者发邮件发短信都行
 - 那这是要预判什么时候断开连接吗
-- on_shutdown试试（）
+- `on_shutdown`试试（）
 
 ![1674876513130](../static/image/1674876513130.jpg)
 
 - 好像也不行
 - 接不到bot了
-- get_bot试试
+- `get_bot`试试
 - 都shutdown了，哪来的bot
 - 你都已经断开了
 - 你干脆做个假关机算了
@@ -56,7 +56,7 @@
 - 就像人都断气了，然后你想他自己给自己人工呼吸
 - 我后台给Termux加锁了，wake-lock也开了
 - 还是会断
-- 让nb加个on_bot_disconnecting（x）
+- 让nb加个`on_bot_disconnecting`（x）
 - nb 里做个定时任务，去检测bot状态
 - nb怎么做到服务器断电前紧急保存数据（
 - 让他们晚一点断电就好（不是）
