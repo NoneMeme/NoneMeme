@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="NoneBot 群大佬们的日常">
+    <link rel="icon" href="/static/favicon.ico">
+    <title>NoneBot 梗 | NoneBot 群大佬们的日常</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.0/css/pico.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        #view {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>NoneBot 梗 | <a href="/text">文字梗</a></h1>
+        <article id="view">
+            <github-md>
+# on_bot_disconnect
+
+![1674876322125](image/on-bot-disconnect/1674876322125.jpg)
+
+![1674876343614](image/on-bot-disconnect/1674876343614.jpg)
+
+- 同样的代码为啥on_bot_disconnect里就报错了
+- bot都断开连接了，哪里还有bot
+- 那搞不了断开连接时发送群消息了吗
+- 你可以先发消息再断开连接
+- 你可以用其他bot号发，或者发邮件发短信都行
+- 那这是要预判什么时候断开连接吗
+- on_shutdown试试（）
+
+![1674876513130](image/on-bot-disconnect/1674876513130.jpg)
+
+- 好像也不行
+- 接不到bot了
+- get_bot试试
+- 都shutdown了，哪来的bot
+- 你都已经断开了
+- 你干脆做个假关机算了
+- 你也没法预测下个时刻会不会断开
+- 所以，除了发命令关没办法在关闭的时候发消息什么的了（？）
+- 所以搞不了了吗
+- 你说，你这个bot如果可以正常使用，为什么会断开呢
+- 我bot老是被我后台杀
+- 不是吧
+- bot都被杀了，还想着bot来操作？
+- 你应该想想你为什么会被杀
+- 提升一下机子配置吧（）
+- 就像人都断气了，然后你想他自己给自己人工呼吸
+- 我后台给Termux加锁了，wake-lock也开了
+- 还是会断
+- 让nb加个on_bot_disconnecting（x）
+- nb 里做个定时任务，去检测bot状态
+- nb怎么做到服务器断电前紧急保存数据（
+- 让他们晚一点断电就好（不是）
+
+```python
+def thread():
+    while True:
+        with lock():
+            save()
+        sleep(1)
+Thread(target=thread).start()
+```
+
+- 草
+- 这位更是重量级
+- 断电那你就再来一台守卫者服务器
+- 搞这玩意这程序别想跑了
+- 断电时写个程序启动一旁的发电机（？
+- 断电了怎么启动（
+- 搞个分布式
+- 你的nb数据在多个服务器上都有备份，断了一个还有很多
+- 两台机子互相启动（）
+- 研究可控核聚变
+- 建个核电站供着
+- 微秒级切换
+- 给服务器备份电源
+- 一个管理跟着ot（
+- 如果用nvdimm，nb的效率是否会有提高
+- 一会写到nonetextmeme（梦想成真
+- nb的性能瓶颈，90%在人上 5%在Python上 5%在硬件上
+- 是这样的
+- 是这样的
+- 是这样的
+- 是这样的
+- 你找根数据线
+- 可以下载到大脑里面
+- nonebrain（
+- 然后有人写了
+
+```python
+async def get():
+    return requests.get(...)
+```
+
+- 把大脑堵塞了（
+- 单核单线程大脑
+- 草
+- 草
+- 草
+- 草
+- nonebrain run
+
+![1674877046276](image/on-bot-disconnect/1674877046276.jpg)
+
+- ot结束
+            </github-md>
+        </article>
+
+        <footer id="footer">
+            <p>· NoneBot 闲聊群 · 堂堂连载 ·</p>
+            <p><a href="https://github.com/NoneMeme/NoneMeme">看完了吗？感兴趣的话， 可以来 GitHub 投稿哦！</a></p>
+        </footer>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag.js"></script> 
+
+</html>
