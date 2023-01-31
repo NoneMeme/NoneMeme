@@ -273,6 +273,7 @@ export default {
     "meme/阿咪好涩.jpg",
     "meme/阿咪怒.jpg",
     "meme/项圈迷路SK.jpg",
+    "meme/马上给你踢了.jpg",
     "meme/高 看 你 了.jpg",
     "meme/魅魔科宝.jpg",
     "meme/黑子怒骂二次元.jpg"
