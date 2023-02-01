@@ -45,7 +45,7 @@ EOF
 for doc in art/*.md
 do
     echo Adding "'${doc:4:-3}'" ...
-    title="$(head -n1 "$doc")"
+    title="$(grep -E '^# ' "$doc" | head -n1)"
     echo "- [${title:2}](./${doc:4:-3}.html)" >> "text/index.html"
 done
 
