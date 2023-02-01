@@ -5,6 +5,12 @@ direrr() {
     exit 1
 }
 
+titleerr() {
+    rm -f text/index.html
+    echo -e "\e[41m[ERROR] The title of the article \e[1;33mcannot be found!\e[0m"
+    exit 1
+}
+
 [[ -d "art" ]] || direrr
 [[ -d "text" ]] || direrr
 
@@ -46,6 +52,7 @@ for doc in art/*.md
 do
     echo Adding "'${doc:4:-3}'" ...
     title="$(grep -E '^# ' "$doc" | head -n1)"
+    [[ -z "$title" ]] && titleerr
     echo "- [${title:2}](./${doc:4:-3}.html)" >> "text/index.html"
 done
 
