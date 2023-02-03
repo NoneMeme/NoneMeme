@@ -97,6 +97,7 @@ export default {
     "meme/《上海zw》.jpg",
     "meme/《难道计算机系一定要看得懂代码吗》.png",
     "meme/一介取舍.jpg",
+    "meme/一次nb的翻墙.jpg",
     "meme/一次性A60.jpg",
     "meme/七夕，礼物，A60.png",
     "meme/不 穿 胖 次.jpg",
