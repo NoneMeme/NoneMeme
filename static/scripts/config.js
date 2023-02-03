@@ -165,6 +165,7 @@ export default {
     "meme/女生说话像nonebot的正确方式.jpg",
     "meme/女装冲.jpg",
     "meme/好大.jpg",
+    "meme/好少.jpg",
     "meme/好想被涩.jpg",
     "meme/它 骂 我.jpg",
     "meme/宠坏a60.jpg",
