@@ -93,6 +93,7 @@ export default {
     "meme/rc首当其冲.jpg",
     "meme/vscode传教士.jpg",
     "meme/wq舔舔.jpg",
+    "meme/《Koishi》.png",
     "meme/《三个游戏》.png",
     "meme/《上海zw》.jpg",
     "meme/《难道计算机系一定要看得懂代码吗》.png",
