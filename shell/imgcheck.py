@@ -1,6 +1,7 @@
 from PIL import Image
 import sys
 import os
+import json
 
 # If you want to skip some images, add them here
 skip_list = [
@@ -13,7 +14,6 @@ def d_hash(image, hash_size=8):
         (hash_size + 1, hash_size),
         Image.LANCZOS,
     )
-    pixels = list(image2.getdata())
     difference = []
     for row in range(hash_size):
         for col in range(hash_size):
@@ -79,13 +79,18 @@ for (name, name2, samiliarity) in similar_images:
 output_map = sorted(output_map.items(), key=lambda x: len(x[1]), reverse=True)
 
 # Print similar images
-
 print('Similar images:')
 for (name, similar) in output_map:
     print(f'{name} is similar to:')
     for (name2, samiliarity) in similar.items():
         print(f'    {name2} ({samiliarity*100:.2f}%)')
 
+# Write dHash map to file
+with open('static/data/images/hash_map.json', 'w', encoding='utf8') as f:
+    json.dump(hash_map, f, indent=4, ensure_ascii=False)
+# Write similar images to file
+with open('static/data/images/similar_images.json', 'w', encoding='utf8') as f:
+    json.dump(output_map, f, indent=4, ensure_ascii=False)
 
 if len(similar_images) == 0:
     print('All images are unique')

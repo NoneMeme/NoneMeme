@@ -21,3 +21,9 @@ jobs:
       - name: check similarity images
         run: |
           python shell/imgcheck.py
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: update similarity images data'
+          file_pattern: static/data/similar_images.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
