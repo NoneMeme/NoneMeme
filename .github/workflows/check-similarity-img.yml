@@ -20,4 +20,4 @@ jobs:
           python -m pip install Pillow
       - name: check similarity images
         run: |
-          python shell/check_similarity_img.py
+          python shell/imgcheck.py
