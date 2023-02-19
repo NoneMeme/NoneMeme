@@ -1,0 +1,29 @@
+name: Check Similarity Images
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check-similarity-img:
+    name: Check Similarity Images
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.*
+      - name: Install dependencies
+        run: |
+          python -m pip install Pillow
+      - name: check similarity images
+        run: |
+          python shell/imgcheck.py
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: update similarity images data'
+          file_pattern: static/data/similar_images.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
