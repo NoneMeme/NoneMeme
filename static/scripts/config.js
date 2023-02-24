@@ -150,6 +150,7 @@ export default {
     "meme/厘米巨长.png",
     "meme/反向病娇.jpg",
     "meme/发电厂.png",
+    "meme/叛变.png",
     "meme/口服开塞露.png",
     "meme/哭哭.jpg",
     "meme/喵喵合奏曲.jpg",
