@@ -44,7 +44,7 @@ cat > "text/index.html" <<EOF
             <github-md>
 > 这里收集了一些 NoneBot 相关的文字梗。
 >
-> 祝各位愉快！
+> 主要内容包括特定的事件或话题。
 
 EOF
 
