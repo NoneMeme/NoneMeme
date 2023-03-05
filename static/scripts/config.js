@@ -49,6 +49,7 @@ export default {
     "meme/SELECT 'GROUP_MEMBER' FROM 'NONEBOT' WHERE 'IS_GAY' = true.png",
     "meme/SK发起银趴.jpg",
     "meme/WE惩罚软件.jpg",
+    "meme/Windows是啥.jpg",
     "meme/aya导出.png",
     "meme/aya手冲请求中.jpg",
     "meme/ddl你不要过来啊.jpg",
