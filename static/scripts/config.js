@@ -47,6 +47,7 @@ export default {
     "meme/OT合法.jpg",
     "meme/OT失败.jpg",
     "meme/P90の难受.jpg",
+    "meme/Pathlib.jpg",
     "meme/SELECT 'GROUP_MEMBER' FROM 'NONEBOT' WHERE 'IS_GAY' = true.png",
     "meme/SK发起银趴.jpg",
     "meme/WE惩罚软件.jpg",
