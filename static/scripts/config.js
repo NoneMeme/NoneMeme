@@ -180,6 +180,7 @@ export default {
     "meme/好大.jpg",
     "meme/好少.jpg",
     "meme/好想被涩.jpg",
+    "meme/好玩.png",
     "meme/它 骂 我.jpg",
     "meme/宠坏a60.jpg",
     "meme/对地河发癫.jpg",
