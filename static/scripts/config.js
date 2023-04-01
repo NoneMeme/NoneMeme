@@ -81,6 +81,7 @@ export default {
     "meme/mq雌小鬼.jpg",
     "meme/mx大号.jpg",
     "meme/nb社区不是很友善.jpg",
+    "meme/noishi！合体！.png",
     "meme/nonebOT.jpg",
     "meme/nonebot居住证.jpg",
     "meme/ot=呕吐.jpg",
