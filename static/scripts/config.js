@@ -218,6 +218,7 @@ export default {
     "meme/月黑风高夜，群友发情时）.png",
     "meme/有狗.jpg",
     "meme/有用的报错你是一行没截到.jpg",
+    "meme/杂鱼.jpg",
     "meme/树树杯.jpg",
     "meme/欲求不满.jpg",
     "meme/欲求不满2.jpg",
