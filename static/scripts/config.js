@@ -253,6 +253,7 @@ export default {
     "meme/白嫖mingxuan.jpg",
     "meme/白沐春销.jpg",
     "meme/白色澡堂.jpg",
+    "meme/看来你是铁杆粉丝.jpg",
     "meme/看看你的jb.jpg",
     "meme/看看几把.jpg",
     "meme/看着不爽就改了.jpg",
