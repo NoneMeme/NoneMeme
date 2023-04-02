@@ -163,6 +163,7 @@ export default {
     "meme/变态.png",
     "meme/叛变.png",
     "meme/口服开塞露.png",
+    "meme/只试过5个.jpg",
     "meme/哭哭.jpg",
     "meme/喵喵合奏曲.jpg",
     "meme/喵喵独奏曲.jpg",
