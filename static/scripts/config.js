@@ -295,6 +295,7 @@ export default {
     "meme/还好没有我.jpg",
     "meme/还挺尬.jpg",
     "meme/这个哥哥凶我.jpg",
+    "meme/迷你显示器.png",
     "meme/逆天练习生.png",
     "meme/透我可以.png",
     "meme/透晕60.jpg",
