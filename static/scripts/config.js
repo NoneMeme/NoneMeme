@@ -192,6 +192,7 @@ export default {
     "meme/幻雪好涩.jpg",
     "meme/应和.png",
     "meme/建议不要建议.png",
+    "meme/开价不能太低.png",
     "meme/弱智吧.jpg",
     "meme/很多指令不生效，而且它还骂我.jpg",
     "meme/快跨年了群友可以白嫖我.png",
