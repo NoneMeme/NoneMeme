@@ -130,6 +130,7 @@ export default {
     "meme/介介的劝告.png",
     "meme/伞兵.jpg",
     "meme/伞兵是你的谎言.jpg",
+    "meme/低调佬倒膜.png",
     "meme/你  发  啥  情.png",
     "meme/你 好 懂.jpg",
     "meme/你为什么这么厉害啊.jpg",
