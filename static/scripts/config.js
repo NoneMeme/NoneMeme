@@ -107,6 +107,7 @@ export default {
     "meme/《上海zw》.jpg",
     "meme/《小狼hao2》.png",
     "meme/《难道计算机系一定要看得懂代码吗》.png",
+    "meme/《香草小cai》.jpg",
     "meme/一介取舍.jpg",
     "meme/一次nb的翻墙.jpg",
     "meme/一次性A60.jpg",
