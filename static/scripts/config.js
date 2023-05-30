@@ -291,6 +291,7 @@ export default {
     "meme/真寻圣经.jpg",
     "meme/真寻阴谋论.jpg",
     "meme/社我里面.jpg",
+    "meme/私货里的申请.png",
     "meme/科宝涩图.jpg",
     "meme/程序贵物狗都不写.png",
     "meme/笨蛋~.jpg",
