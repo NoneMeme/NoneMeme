@@ -70,7 +70,6 @@ export default {
     "meme/ddl怒.jpg",
     "meme/ddl摆烂.png",
     "meme/ddl服了.jpg",
-    "meme/ddl极上警告.jpg",
     "meme/ddl查成分1.png",
     "meme/ddl查成分2.png",
     "meme/ddl求star.jpg",
