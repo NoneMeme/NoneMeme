@@ -60,6 +60,7 @@ export default {
     "meme/Windows是啥.jpg",
     "meme/aya导出.png",
     "meme/aya手冲请求中.jpg",
+    "meme/ddlの别急.png",
     "meme/ddl你不要过来啊.jpg",
     "meme/ddl你好骚啊.jpg",
     "meme/ddl傲娇威胁.png",
