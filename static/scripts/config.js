@@ -49,6 +49,7 @@ export default {
     "meme/M-A60.jpg",
     "meme/MX嘿嘿MX.png",
     "meme/M院长.jpg",
+    "meme/NB，启动！.png",
     "meme/NoneBot2源码内幕.jpg",
     "meme/OT合法.jpg",
     "meme/OT失败.jpg",
