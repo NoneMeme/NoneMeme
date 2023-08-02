@@ -220,6 +220,7 @@ export default {
     "meme/地河小小例证.jpg",
     "meme/地河很硬！.png",
     "meme/地河设精.jpg",
+    "meme/大超一下也没事.jpg",
     "meme/太淫乱了.jpg",
     "meme/女子魅魔.jpg",
     "meme/女生说话像nonebot的正确方式.jpg",
