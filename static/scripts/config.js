@@ -89,6 +89,7 @@ export default {
     "meme/ink警觉.png",
     "meme/jinser喵~.png",
     "meme/mingxuan宣言.jpg",
+    "meme/mirai 桥接.png",
     "meme/mix去势（危.jpg",
     "meme/mix喂饭器.png",
     "meme/mix喵.png",
