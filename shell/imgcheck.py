@@ -7,6 +7,7 @@ import json
 skip_list = [
     'Atri变态去死.jpg',
     'Atri是喜欢涩涩的孩子.jpg',
+    'A60加钱1.png',
 ]
 
 def d_hash(image, hash_size=8):
