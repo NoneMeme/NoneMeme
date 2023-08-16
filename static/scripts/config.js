@@ -305,6 +305,7 @@ export default {
     "meme/爷新の理直气壮.jpg",
     "meme/狗都能听懂.png",
     "meme/独立宣言.png",
+    "meme/玩NB玩的.jpg",
     "meme/玩蛇性也.jpg",
     "meme/现在我只想做爱.png",
     "meme/瓜瓜主人.jpg",
