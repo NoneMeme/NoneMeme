@@ -84,6 +84,7 @@ export default {
     "meme/ddl要哭了.jpg",
     "meme/ddl银趴.jpg",
     "meme/ddl除夕加班.jpg",
+    "meme/gocq终端输入.png",
     "meme/impart.jpg",
     "meme/import ass.jpg",
     "meme/ink警觉.png",
