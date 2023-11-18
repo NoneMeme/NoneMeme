@@ -44,6 +44,7 @@ export default {
     "meme/A佬妈妈桑~.jpg",
     "meme/A佬藏话.jpg",
     "meme/A佬：太坏了.jpg",
+    "meme/BT好多.png",
     "meme/Bot的故事.jpg",
     "meme/Coder不需要爱情.png",
     "meme/M ingxuan.jpg",
