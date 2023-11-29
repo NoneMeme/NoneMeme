@@ -305,6 +305,7 @@ export default {
     "meme/感觉群技术力不太行.jpg",
     "meme/我  太  菜  了.png",
     "meme/我也是管人妹妹.png",
+    "meme/我冲了，尝尝.png",
     "meme/我只会扒着别人酷当看.png",
     "meme/我是笨比.jpg",
     "meme/我根本不懂nonebot.jpg",
