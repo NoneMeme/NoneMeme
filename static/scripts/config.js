@@ -3,6 +3,7 @@ export default {
     "meme/010代理.jpg",
     "meme/1的易失性.png",
     "meme/24小时年回自助.jpg",
+    "meme/404の战败CG.png",
     "meme/404南桐.jpg",
     "meme/404叛变.jpg",
     "meme/404教程.jpg",
