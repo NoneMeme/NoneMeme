@@ -156,6 +156,7 @@ export default {
     "meme/《去闲聊群炸群》.png",
     "meme/《发出来让我们给你代码审计吗》.jpg",
     "meme/《受不了了，我退群了》.jpg",
+    "meme/《可以洗入侵大成功》.jpg",
     "meme/《好想变成rbq》.jpg",
     "meme/《小狼hao2》.png",
     "meme/《就不要，略略略》.png",
