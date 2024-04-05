@@ -123,6 +123,7 @@ export default {
     "meme/nonebOT.jpg",
     "meme/nonebot居住证.jpg",
     "meme/nonejiji.jpg",
+    "meme/npm是什么.jpg",
     "meme/ot=呕吐.jpg",
     "meme/php拍黄片.png",
     "meme/pip和php.jpg",
