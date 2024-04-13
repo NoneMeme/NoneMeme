@@ -68,14 +68,14 @@ async function loadgallery(remainItemCount) {
     const node = createEleByTemp('gallery-item', {
         id: `#${
             items[displayedItemCount].match(
-                /meme\/(.+)\.(jpg|png|jfif|webp|gif)/
+                /meme\/(.+)\.(jpg|png|jfif|webp|gif|jpeg|bmp)/
             )[1]
         }`,
         src: `./${items[displayedItemCount]}`,
         alt: items[displayedItemCount],
         title: `# ${
             items[displayedItemCount].match(
-                /meme\/(.+)\.(jpg|png|jfif|webp|gif)/
+                /meme\/(.+)\.(jpg|png|jfif|webp|gif|jpeg|bmp)/
             )[1]
         }`,
     })
@@ -100,7 +100,7 @@ function view() {
     view.querySelector('h2').innerHTML = `# ${name}`
     for (const i of items) {
         if (
-            i.search(new RegExp(`meme/${name}\.(jpg|png|jfif|webp|gif)`)) != -1
+            i.search(new RegExp(`meme/${name}\.(jpg|png|jfif|webp|gif|jpeg|bmp)`)) != -1
         ) {
             name = i
             break
@@ -123,7 +123,7 @@ async function initgallery() {
     document.getElementById('refresh-btn').onclick = () => {
         location.hash = `#${
             items[random(items.length - 1, 0)].match(
-                /meme\/(.+)\.(jpg|png|jfif|webp|gif)/
+                /meme\/(.+)\.(jpg|png|jfif|webp|gif|jpeg|bmp)/
             )[1]
         }`
     }
@@ -152,7 +152,7 @@ async function initgallery() {
                 'meme/' +
                     decodeURIComponent(
                         i.href.match(
-                            /(?<=meme\/).+\.(jpg|png|jfif|webp|gif)/
+                            /(?<=meme\/).+\.(jpg|png|jfif|webp|gif|jpeg|bmp)/
                         )[0]
                     )
             )
