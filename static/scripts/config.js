@@ -227,6 +227,7 @@ export default {
     "meme/你这个智商，还是告别编程吧.jpg",
     "meme/你连卖萌都不会.jpg",
     "meme/侵入性罗生门.jpg",
+    "meme/修改自己的群名片为您的GitHub ID.jpg",
     "meme/做好人.jpg",
     "meme/僭越.png",
     "meme/先学Python.jpg",
