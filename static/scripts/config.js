@@ -201,6 +201,7 @@ export default {
     "meme/二次元rc酱.jpg",
     "meme/二次元理想国.jpg",
     "meme/二次元白师傅.jpg",
+    "meme/亏损最大化.png",
     "meme/五毛一夜.jpg",
     "meme/人手不足的原因.jpg",
     "meme/什么时候玩a60.png",
