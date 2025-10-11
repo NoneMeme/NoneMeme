@@ -168,6 +168,7 @@ export default {
     "meme/《昂贵的器官组成了便宜的我》.jpg",
     "meme/《玩什么Linux》.jpg",
     "meme/《英语看起来乱七八糟的》.png",
+    "meme/《超大比》.png",
     "meme/《这胯下之物岂是如此不便》.jpg",
     "meme/《难道计算机系一定要看得懂代码吗》.png",
     "meme/《香草小cai》.jpg",
