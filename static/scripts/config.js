@@ -329,6 +329,7 @@ export default {
     "meme/我根本不懂nonebot.jpg",
     "meme/我根本没写.jpg",
     "meme/我经验不多.jpg",
+    "meme/我要qwqa.jpg",
     "meme/我觉得该被骂的另有其人.jpg",
     "meme/才不是什么涩涩.jpg",
     "meme/打一顿解决45.jpg",
