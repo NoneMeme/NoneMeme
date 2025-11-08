@@ -133,6 +133,7 @@ export default {
     "meme/py不会生孩子.jpg",
     "meme/py和曹丕一样.jpg",
     "meme/py杰哥test.jpg",
+    "meme/rainzee-csn.png",
     "meme/rc=人才.jpg",
     "meme/rc呜呜呜.jpg",
     "meme/rc多来点.png",
