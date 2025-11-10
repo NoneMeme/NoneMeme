@@ -1,5 +1,6 @@
 export default {
   items: [
+    "meme/(看皮燕子).png",
     "meme/010代理.jpg",
     "meme/1的易失性.png",
     "meme/24小时年回自助.jpg",
