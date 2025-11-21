@@ -158,6 +158,7 @@ export default {
     "meme/《上海zw》.jpg",
     "meme/《不要啊，我真的会死掉的》.png",
     "meme/《你当我儿子我可以配合你一下》.png",
+    "meme/《傻逼一个》.png",
     "meme/《先睡了》《已更新》.png",
     "meme/《努力奋斗》.jpg",
     "meme/《去闲聊群炸群》.png",
