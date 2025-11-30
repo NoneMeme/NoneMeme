@@ -347,6 +347,7 @@ export default {
     "meme/捕蛇者.png",
     "meme/换我我也当初中女生.png",
     "meme/接热水.png",
+    "meme/控制这块.jpg",
     "meme/插件作者.jpg",
     "meme/插我.jpg",
     "meme/敏感.jpg",
