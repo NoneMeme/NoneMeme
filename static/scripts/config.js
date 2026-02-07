@@ -144,6 +144,7 @@ export default {
     "meme/rc米线.jpg",
     "meme/rc问号.jpg",
     "meme/rc首当其冲.jpg",
+    "meme/rfの怒.png",
     "meme/seeeex.jpg",
     "meme/vscode传教士.jpg",
     "meme/wq舔舔.jpg",
