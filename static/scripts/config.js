@@ -179,6 +179,7 @@ export default {
     "meme/《香草小cai》.jpg",
     "meme/《魔女士》.png",
     "meme/《黄黄的ddl》.jpg",
+    "meme/一些星欲.png",
     "meme/一介取舍.jpg",
     "meme/一晚用完一柜套！.png",
     "meme/一次nb的翻墙.jpg",
