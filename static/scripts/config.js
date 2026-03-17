@@ -428,6 +428,7 @@ export default {
     "meme/简单悖论.jpg",
     "meme/算了，你们不懂.jpg",
     "meme/粉笔.jpg",
+    "meme/精分这块.png",
     "meme/经典复刻.jpg",
     "meme/给我康康.jpg",
     "meme/给我草.jpg",
