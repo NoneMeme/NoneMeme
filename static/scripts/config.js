@@ -444,6 +444,7 @@ export default {
     "meme/群友发电日记0x05.png",
     "meme/群友发电日记0x06.jpg",
     "meme/群友哪来的生育能力.jpg",
+    "meme/老吃家这块.png",
     "meme/胡作非为.png",
     "meme/能不能喜欢超mix.png",
     "meme/自卑.png",
